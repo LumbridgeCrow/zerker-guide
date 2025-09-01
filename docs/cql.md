@@ -212,5 +212,20 @@ This site is meant to guide you to making your dream zerker account. Use the nav
 
 </div>
 
+  <script>
+    // Load saved checkbox states
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      const saved = localStorage.getItem(cb.id);
+      if (saved === "true") {
+        cb.checked = true;
+      }
+
+      // Save checkbox state on change
+      cb.addEventListener("change", () => {
+        localStorage.setItem(cb.id, cb.checked);
+      });
+    });
+  </script>
+
 </body>
 </html>
