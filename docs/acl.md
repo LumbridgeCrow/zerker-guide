@@ -135,3 +135,18 @@ hide:
   <input type="checkbox" id="wild_elite" />
   <label for="wild_elite">Wilderness Elite</label><br>
 </div>
+
+  <script>
+    // Load saved checkbox states
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+      const saved = localStorage.getItem(cb.id);
+      if (saved === "true") {
+        cb.checked = true;
+      }
+
+      // Save checkbox state on change
+      cb.addEventListener("change", () => {
+        localStorage.setItem(cb.id, cb.checked);
+      });
+    });
+  </script>
